@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Question for Ayesha ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap');
+:root{--pink:#ff4f91;--pale:#ffd5e5;--bg:#160813}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;color:#fff;
+font-family:'DM Sans',sans-serif;background:radial-gradient(ellipse at 15% 15%,#54203e 0,transparent 35%),radial-gradient(ellipse at 85% 85%,#4a1736 0,transparent 38%),var(--bg);overflow-x:hidden}
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.heart{position:absolute;color:#ff5b9b;opacity:.22;animation:float 9s linear infinite;font-size:22px}
+@keyframes float{from{transform:translateY(110vh) rotate(0)}to{transform:translateY(-15vh) rotate(360deg)}}
+.card{width:min(100%,540px);padding:clamp(28px,6vw,54px);text-align:center;border:1px solid #ff83b5;border-radius:28px;background:linear-gradient(145deg,rgba(50,15,37,.94),rgba(25,8,22,.96));box-shadow:0 0 55px #ff3f8b26,inset 0 0 35px #ff6ca00c;position:relative}
+.rose{font-size:48px;margin-bottom:10px;filter:drop-shadow(0 0 15px #ff4f91)}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,7vw,3rem);margin:8px 0;color:#ffe3ee}
+.sub{color:#eab9cd;line-height:1.7;margin:12px auto 24px;max-width:390px}
+.note{background:linear-gradient(110deg,#f8a9c8,#ffe0eb);color:#45152d;border-radius:14px;padding:18px;margin:24px 0;font-family:'Playfair Display',serif;font-size:1.22rem}
+.question{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,6vw,2.4rem);margin:24px 0;color:#ffb6d1}
+.buttons{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:24px}
+button{border:0;border-radius:999px;padding:14px 27px;font-size:1rem;font-weight:700;cursor:pointer;transition:transform .2s,box-shadow .2s}
+button:hover{transform:translateY(-2px)}
+.yes{background:linear-gradient(100deg,#ff3984,#ff75a9);color:white;box-shadow:0 7px 24px #ff398455}
+.no{background:transparent;color:#ffd5e5;border:1px solid #ff80b4}
+.small{font-size:.85rem;color:#c99caf;margin-top:24px}
+#answer{display:none}
+#answer.show{display:block;animation:appear .7s ease}
+#question.hide{display:none}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.bigheart{font-size:76px;color:#ff4f91;text-shadow:0 0 30px #ff4f91;animation:pulse 1.2s infinite}
+@keyframes pulse{50%{transform:scale(1.12)}}
+.footer{font-size:.8rem;color:#b88da3;margin-top:22px}
+</style>
+</head>
+<body>
+<div class="hearts" aria-hidden="true" id="hearts"></div>
+<main class="card">
+  <section id="question">
+    <div class="rose">🌹</div>
+    <h1>Hey, Ayesha! 💗</h1>
+    <p class="sub">There’s something I’ve been wanting to tell you…</p>
+    <div class="note"><strong>I really like you.</strong><br>You make ordinary moments feel a little more special.</div>
+    <div class="question">Ayesha, would you like to get to know me better? ❤️</div>
+    <div class="buttons">
+      <button class="yes" id="yesBtn">Yes, I'd like that 💗</button>
+      <button class="no" id="noBtn">Not that way</button>
+    </div>
+    <p class="small">No pressure. Take your time 😊</p>
+  </section>
+  <section id="answer" aria-live="polite">
+    <div class="bigheart">♥</div>
+    <h1>Ayesha, I Love You! ❤️</h1>
+    <p class="sub">You are someone truly special to me. Thank you for making this moment beautiful. 💗</p>
+    <p class="small">With lots of affection, just for you, Ayesha 🌹</p>
+  </section>
+  <p class="footer">Made with care ❤️</p>
+</main>
+<script>
+const hearts = document.getElementById('hearts');
+for(let i=0;i<22;i++){
+  const h=document.createElement('span'); h.className='heart'; h.textContent='♥';
+  h.style.left=Math.random()*100+'%'; h.style.animationDelay=(Math.random()*9)+'s';
+  h.style.animationDuration=(7+Math.random()*8)+'s'; h.style.fontSize=(12+Math.random()*22)+'px';
+  hearts.appendChild(h);
+}
+document.getElementById('yesBtn').addEventListener('click',()=>{
+  document.getElementById('question').classList.add('hide');
+  document.getElementById('answer').classList.add('show');
+});
+document.getElementById('noBtn').addEventListener('click',()=>{
+  document.querySelector('.small').textContent='That’s completely okay. Thank you for being honest. ❤️';
+});
+</script>
+</body>
+</html>
